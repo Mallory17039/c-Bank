@@ -40,7 +40,6 @@ int main()
 		{
 		case 1:
 			// acc.display_all(members);
-						/// acc.display_all(members);
 			for_each(members.begin(), members.end(),
 				[](auto& acc) {
 					acc.display();
@@ -96,7 +95,8 @@ int main()
 			break;
 		}
 		case 9:
-			acc.add_contact();
+			// add contact info
+			acc.add_contact(members);
 			break;
 		case 0:
 			acc.quit();

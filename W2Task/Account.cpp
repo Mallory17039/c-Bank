@@ -18,7 +18,7 @@ Account::Account(string name, float balance) :
 
 void Account::create_account(list<Account>& member_list) {
 	cout << "Enter the name: ";
-	cin >> name;
+	std::getline(std::cin >> std::ws, name);
 	cout << "Enter the balance: ";
 	cin >> balance;
 	cout << "Account Created.";
@@ -50,9 +50,23 @@ list<Account>::iterator find_ID(list<Account>& member_list, int accountID) {
 	return it;
 }
 
-void Account::add_contact() {
-	contact_info = std::make_shared<Contact>();
-	contact_info->initialize();
+void Account::add_contact(list<Account>& member_list) {
+	cout << "Enter and ID to search for: ";
+	cin >> accountID;
+	list<Account>::iterator it;
+	it = find_ID(member_list, accountID);
+
+	if (it != member_list.end()) {
+		// found a member with that ID
+		cout << "*** Found the ID ***" << endl;
+		it->display();
+	}
+	else {
+		cout << "*** Can't find the ID *** " << endl;
+	}
+	it->contact_info = std::make_shared<Contact>();
+	it->contact_info->initialize();
+//	it->contact_info->cdisplay();
 }
 
 void Account::display_all(list<Account>& member_list) {

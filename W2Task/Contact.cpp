@@ -3,6 +3,7 @@
 #include <iostream>
 #include <list>
 #include <algorithm>
+#include <sstream>
 
 int Contact::next_contactID = 0;
 
@@ -11,14 +12,14 @@ Contact::Contact() : address(""), city(""), state(""), phone(""),zip_code(""), c
 }
 
 Contact::Contact(string address, string city, string state, string phone, string zip_code) :
-	address(address), city(city), phone(phone), zip_code(zip_code), contactID(next_contactID++)
+	address(address), city(city), state(state), phone(phone), zip_code(zip_code), contactID(next_contactID++)
 {
 }
 
 //input method
 void Contact::initialize() {
 	cout << "Enter Address: ";
-	cin >> address;
+	std::getline(std::cin >> std::ws, address);
 	cout << "Enter City: ";
 	cin >> city;
 	cout << "Enter State: ";
@@ -26,9 +27,11 @@ void Contact::initialize() {
 	cout << "Enter Zip Code: ";
 	cin >> zip_code;
 	cout << "Enter Phone Number: ";
-	cin >> phone;
+	std::getline(std::cin >> std::ws, phone);
 	cout << "Contact Created.";
 	contactID =+ contactID;
+
+	Contact contact{address, city, state, phone, zip_code};
 }
 
 //output method

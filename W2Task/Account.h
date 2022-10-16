@@ -37,7 +37,7 @@ public:
 
 	void display() const;
 
-	void add_contact();
+	void add_contact(list<Account>& member_list);
 
 	void display_all(list<Account>& member_list);
 

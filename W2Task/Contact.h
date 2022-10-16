@@ -20,7 +20,6 @@ public:
 
 	Contact();
 	Contact(string address, string city, string state, string phone, string zip_code);
-	int input();
 	void initialize();
 	void cdisplay() const;
 	void display_all(list<Contact>& member_list);
